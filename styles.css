@@ -432,7 +432,7 @@ img {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 68px;
+  bottom: 84px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -453,6 +453,7 @@ img {
 }
 
 .signal-date {
+  margin-right: 16px;
   color: rgba(111, 128, 155, 0.58);
   font-size: 11px;
   font-weight: 600;
