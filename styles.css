@@ -1057,13 +1057,23 @@ h3 {
 .experience-list {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.experience-list::-webkit-scrollbar {
+  display: none;
 }
 
 .experience-item {
   position: relative;
+  flex-shrink: 0;
+  width: 340px;
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -2051,10 +2061,6 @@ h3 {
 
   .experience-shell {
     min-height: auto;
-  }
-
-  .experience-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-anchor {
