@@ -15,7 +15,7 @@
   --radius: 8px;
   --max: 1180px;
   --hero-max: 1760px;
-  --home-gutter: 64px;
+  --home-gutter: 88px;
   --home-content-max: var(--hero-max);
   --topbar-height: 76px;
   --nav-content-bottom: 56px;
@@ -298,9 +298,11 @@ img {
   line-height: 1.18;
   font-weight: 900;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .signal-copy h1 span {
+  white-space: nowrap;
   color: transparent;
   background: linear-gradient(90deg, #f7fbff 0%, #eefaff 42%, #20d4ff 68%, #0b49c8 100%);
   -webkit-background-clip: text;
@@ -326,6 +328,12 @@ img {
   line-height: 1.62;
 }
 
+.signal-copy h1,
+.signal-copy .signal-intro,
+.signal-copy .signal-actions {
+  transform: translateY(-40px);
+}
+
 .signal-actions {
   display: flex;
   flex-wrap: wrap;
@@ -348,17 +356,67 @@ img {
   border-color: rgba(32, 212, 255, 0.44);
   color: var(--blue);
   background: transparent;
+  --beam-x: 50%;
+  --beam-y: 0%;
+  --beam-x-opposite: 50%;
+  --beam-y-opposite: 100%;
+}
+
+.signal-explode span {
+  position: relative;
+  z-index: 2;
+}
+
+.signal-explode::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at var(--beam-x) var(--beam-y),
+      rgb(255, 255, 255) 0,
+      rgb(255, 255, 255) 0.5px,
+      rgba(210, 244, 255, 0.84) 1px,
+      rgba(64, 202, 255, 0.68) 6px,
+      rgba(29, 140, 255, 0.46) 14px,
+      rgba(0, 84, 255, 0.12) 24px,
+      rgba(0, 84, 255, 0) 30px
+    ),
+    radial-gradient(
+      circle at var(--beam-x-opposite) var(--beam-y-opposite),
+      rgb(255, 255, 255) 0,
+      rgb(255, 255, 255) 0.5px,
+      rgba(210, 244, 255, 0.84) 1px,
+      rgba(64, 202, 255, 0.68) 6px,
+      rgba(29, 140, 255, 0.46) 14px,
+      rgba(0, 84, 255, 0.12) 24px,
+      rgba(0, 84, 255, 0) 30px
+    );
+  filter: brightness(1.14) drop-shadow(0 0 2px rgba(185, 236, 255, 0.7)) drop-shadow(0 0 7px rgba(0, 96, 255, 0.34));
+  animation: next-project-border-light 5.6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
 }
 
 .signal-explode:hover {
-  color: #031017;
-  background: var(--cyan);
+  color: var(--text);
+  background: transparent;
 }
 
 .signal-proof {
   position: absolute;
   right: 0;
-  bottom: 16px;
+  bottom: 24px;
   left: 0;
   display: flex;
   align-items: baseline;
@@ -370,8 +428,8 @@ img {
   margin: 0;
   border-top: 0;
   color: rgba(111, 128, 155, 0.58);
-  font-size: 9px;
-  font-weight: 400;
+  font-size: 11px;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -541,7 +599,8 @@ img {
   padding: 16px;
   border-top: 0;
   color: rgba(111, 128, 155, 0.58);
-  font-size: 9px;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .eyebrow {
@@ -1124,12 +1183,13 @@ h3 {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 20px;
 }
 
 .project-card {
   position: relative;
-  min-height: 360px;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1246,6 +1306,7 @@ h3 {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 0;
+  padding-top: 18px;
 }
 
 .project-tags span {
@@ -1836,6 +1897,7 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .signal-explode::after,
   .project-switch-card.is-next-project::after {
     animation: none;
     background: rgba(18, 107, 255, 0.16);
@@ -1922,7 +1984,7 @@ h3 {
   }
 
   .signal-copy h1 {
-    font-size: 48px;
+    font-size: clamp(42px, 5.6vw, 48px);
   }
 
   .signal-tagline {
@@ -2033,7 +2095,13 @@ h3 {
 
   .signal-copy h1 {
     margin-bottom: 20px;
-    font-size: 44px;
+    font-size: clamp(32px, 10.5vw, 44px);
+  }
+
+  .signal-copy h1,
+  .signal-copy .signal-intro,
+  .signal-copy .signal-actions {
+    transform: translateY(-24px);
   }
 
   .signal-tagline {
@@ -2061,7 +2129,8 @@ h3 {
   .signal-proof {
     display: grid;
     justify-content: start;
-    font-size: 9px;
+    font-size: 11px;
+    font-weight: 600;
     line-height: 1.7;
   }
 
@@ -2072,7 +2141,8 @@ h3 {
 
   .signal-hud-footer {
     padding: 12px;
-    font-size: 8px;
+    font-size: 10px;
+    font-weight: 600;
   }
 
 

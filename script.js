@@ -6,7 +6,8 @@ const cases = [
     title: "东上数科AI外呼",
     period: "2022.10 - 2023.03",
     role: "独立负责 0-1 视觉 / 交互",
-    tags: ["Web 端", "AI 语音外呼", "复杂流程", "数据可视"],
+    meta: "Web端",
+    tags: ["AI 语音外呼", "0-1"],
     accent: "#20d4ff",
     summary:
       "围绕客服自动打电话场景，梳理 Bot 配置、话术流程、问答知识、训练测试与数据看板，让政企用户能低成本理解和维护复杂对话系统。",
@@ -32,7 +33,8 @@ const cases = [
     title: "U途RPA",
     period: "2022.02 - 2023.03",
     role: "独立负责设计改版",
-    tags: ["PC / 客户端", "RPA", "流程搭建", "表单优化"],
+    meta: "PC客户端",
+    tags: ["流程搭建", "设计改版"],
     accent: "#55a8ff",
     summary:
       "为模拟人在电脑上操作的自动化产品重构核心体验，重点处理流程搭建、必要工具触达、快捷操作与任务表单复杂度。",
@@ -58,7 +60,8 @@ const cases = [
     title: "可视化大屏",
     period: "2021 - 2022",
     role: "UI 界面设计；协同建模与动效",
-    tags: ["大屏设计", "政务场景", "数据看板", "3D 可视化"],
+    meta: "大屏",
+    tags: ["政务场景", "数据看板"],
     accent: "#38d8a0",
     summary:
       "将业务监控、接待内容、区域分类、预警状态等信息组织为大屏界面，在强视觉场景里保持数据层级和阅读效率。",
@@ -84,10 +87,10 @@ const cases = [
     title: "AI 工作流设计探索",
     period: "2025 - 2026",
     role: "设计主导 / 自驱推进",
-    tags: ["AI 工作流", "Copilot", "生成式体验", "提效工具"],
+    meta: "Web端",
+    tags: ["VibeCoding", "提效工具"],
     accent: "#8a7cff",
-    summary:
-      "围绕 AI 生成与工作流编排场景，探索从输入、生成、校验到批量执行的人机协作体验，让复杂能力以更低门槛的方式被团队使用。",
+    summary: "通过AI生成访谈内容，并编制标准界面生成skill，让AI直接输出符合政采云规范的界面",
     hero: 1,
     crop: {
       image: 1,
@@ -110,7 +113,8 @@ const cases = [
     title: "设计自驱动",
     period: "2019 - 2026",
     role: "设计主导 / 自驱推进",
-    tags: ["设计自驱", "AIGC", "产品思维", "全链路"],
+    meta: "文章",
+    tags: ["交互细节", "复盘", "批量操作"],
     accent: "#f5b05d",
     summary:
       "以设计师视角主动识别问题、拆解目标并推进方案落地，将业务理解、体验策略与视觉表达整合成可执行的设计行动。",
@@ -245,7 +249,7 @@ function renderProjectCards() {
         <a class="project-card" href="${item.href}" style="--accent: ${item.accent}">
           <div class="project-meta">
             <span>${item.number}</span>
-            <span>${item.tags.slice(0, 2).join(" / ")}</span>
+            <span>${item.meta}</span>
           </div>
           <h3>${item.title}</h3>
           <p>${item.summary}</p>
