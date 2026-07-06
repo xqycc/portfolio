@@ -429,19 +429,12 @@ img {
 }
 
 .signal-proof {
-  position: absolute;
-  right: 0;
-  bottom: 16px;
-  left: 0;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: flex-start;
   gap: 16px;
-  width: 100%;
-  max-width: 520px;
-  padding-top: 0;
-  margin: 0;
-  border-top: 0;
+  margin-top: auto;
+  padding-top: 16px;
   color: rgba(111, 128, 155, 0.58);
   font-size: 11px;
   font-weight: 600;
