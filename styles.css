@@ -428,20 +428,30 @@ img {
   animation: none;
 }
 
-.signal-proof {
+.signal-bottom-info {
   position: absolute;
+  left: 0;
   right: 0;
   bottom: 16px;
-  left: 0;
   display: flex;
-  align-items: baseline;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.signal-proof {
+  display: flex;
+  align-items: center;
   gap: 16px;
-  width: 100%;
-  max-width: 520px;
-  padding-top: 0;
-  margin: 0;
-  border-top: 0;
+  color: rgba(111, 128, 155, 0.58);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.signal-date {
   color: rgba(111, 128, 155, 0.58);
   font-size: 11px;
   font-weight: 600;
