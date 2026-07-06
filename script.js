@@ -466,9 +466,10 @@ window.addEventListener("resize", alignDateToFrame);
     (e) => {
       const rect = experienceSection.getBoundingClientRect();
       const maxScroll = experienceList.scrollWidth - experienceList.clientWidth;
+      const viewportMid = window.innerHeight / 2;
 
-      // Only intercept when section is visible in viewport
-      if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+      // Only intercept when section spans the vertical center of viewport
+      if (rect.top > viewportMid || rect.bottom < viewportMid) return;
 
       if (e.deltaY > 0) {
         // Scrolling down: horizontal first
