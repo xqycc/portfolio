@@ -223,12 +223,21 @@ img {
   padding: 116px 0;
 }
 
+#experience,
+#cases {
+  padding-top: 80px;
+}
+
 .scroll-anchor {
   position: relative;
   top: -96px;
   display: block;
   height: 0;
   visibility: hidden;
+}
+
+.cases {
+  padding-top: 40px;
 }
 
 .hero {
@@ -330,7 +339,8 @@ img {
 
 .signal-copy h1,
 .signal-copy .signal-intro,
-.signal-copy .signal-actions {
+.signal-copy .signal-actions,
+.signal-copy .signal-proof {
   transform: translateY(-40px);
 }
 
@@ -409,24 +419,20 @@ img {
 }
 
 .signal-explode:hover {
-  color: var(--text);
+  color: inherit;
   background: transparent;
 }
 
+.signal-explode:hover::before {
+  opacity: 0;
+  animation: none;
+}
+
 .signal-proof {
-  position: absolute;
-  right: 0;
-  bottom: 24px;
-  left: 0;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
   gap: 16px;
-  width: 100%;
-  max-width: 520px;
-  padding-top: 0;
-  margin: 0;
-  border-top: 0;
+  margin-top: 16px;
   color: rgba(111, 128, 155, 0.58);
   font-size: 11px;
   font-weight: 600;
@@ -595,12 +601,19 @@ img {
   right: 0;
   bottom: 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 16px;
   border-top: 0;
   color: rgba(111, 128, 155, 0.58);
   font-size: 11px;
   font-weight: 600;
+}
+
+.hud-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .eyebrow {
@@ -1029,49 +1042,63 @@ h3 {
 
 .experience-item {
   position: relative;
-  min-width: 0;
-  min-height: 284px;
+  min-height: 0;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   padding: 22px;
-  border: 1px solid rgba(177, 218, 255, 0.12);
-  border-radius: 8px;
+  border: 1px solid rgba(166, 195, 232, 0.14);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 34%),
-    rgba(11, 17, 28, 0.62);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01) 32%, rgba(32, 212, 255, 0.02) 100%),
+    rgba(11, 17, 28, 0.55);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 18px 44px rgba(0, 0, 0, 0.24);
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 24px 60px rgba(0, 0, 0, 0.32);
   opacity: 0;
   transform: translateY(22px) scale(0.98);
-  overflow: hidden;
   transition:
     border-color 220ms ease,
-    box-shadow 220ms ease,
+    background 220ms ease,
     transform 220ms ease,
-    background 220ms ease;
+    box-shadow 220ms ease;
 }
 
 .experience-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 24px 24px, color-mix(in srgb, var(--accent) 24%, transparent), transparent 9rem),
-    linear-gradient(135deg, color-mix(in srgb, var(--accent) 18%, transparent), transparent 42%);
-  opacity: 0.52;
-  pointer-events: none;
+  content: none;
 }
 
 .experience-item::after {
   content: "";
   position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 42%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 70%, white 10%));
-  opacity: 0.52;
+  z-index: 2;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    100px circle at var(--lx, 50%) var(--ly, 50%),
+    rgba(200, 230, 255, 0.9),
+    rgba(100, 170, 255, 0.5) 30%,
+    rgba(40, 100, 255, 0.15) 60%,
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 200ms ease;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.experience-item:hover::after {
+  opacity: 1;
 }
 
 .experience-shell.visible .experience-item {
@@ -1097,26 +1124,26 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  margin-bottom: 34px;
+  margin-bottom: 24px;
 }
 
 .experience-index span {
-  color: color-mix(in srgb, var(--accent) 84%, white 16%);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.18em;
+  color: rgba(221, 235, 255, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
 }
 
 .experience-index strong {
-  color: rgba(221, 235, 255, 0.7);
-  font-size: 13px;
-  font-weight: 800;
+  color: rgba(221, 235, 255, 0.5);
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .experience-item h3 {
   position: relative;
   z-index: 1;
-  margin: 0 0 18px;
+  margin: 0 0 10px;
   color: rgba(255, 255, 255, 0.9);
   font-size: clamp(19px, 1.4vw, 24px);
   line-height: 1.28;
@@ -1126,7 +1153,7 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 10px;
+  gap: 6px;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -1135,7 +1162,7 @@ h3 {
 .experience-item li {
   color: rgba(201, 213, 232, 0.82);
   font-size: 14px;
-  line-height: 1.62;
+  line-height: 1.45;
 }
 
 .experience-item li::before {
@@ -1145,25 +1172,9 @@ h3 {
   height: 5px;
   margin-right: 8px;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--accent) 74%, white 12%);
-  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 54%, transparent);
+  background: #55a8ff;
+  box-shadow: 0 0 14px rgba(85, 168, 255, 0.54);
   vertical-align: 2px;
-}
-
-.experience-item:hover {
-  transform: translateY(-6px);
-  border-color: color-mix(in srgb, var(--accent) 44%, rgba(255, 255, 255, 0.18));
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 38%),
-    rgba(13, 21, 34, 0.78);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 28px 68px rgba(0, 0, 0, 0.34),
-    0 0 42px color-mix(in srgb, var(--accent) 18%, transparent);
-}
-
-.experience-item:hover h3 {
-  color: #ffffff;
 }
 
 .highlight-card,
@@ -1189,61 +1200,54 @@ h3 {
 
 .project-card {
   position: relative;
-  min-height: 0;
+  min-width: 0;
+  min-height: 240px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 32px;
-  border: 1px solid rgba(166, 195, 232, 0.14);
-  border-radius: var(--radius);
+  padding: 22px;
+  border: 1px solid rgba(177, 218, 255, 0.12);
+  border-radius: 8px;
   color: var(--text);
   text-decoration: none;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018) 32%, rgba(32, 212, 255, 0.035) 100%),
-    rgba(11, 17, 28, 0.86);
-  overflow: hidden;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 34%),
+    rgba(11, 17, 28, 0.62);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.09),
-    0 24px 60px rgba(0, 0, 0, 0.32);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 44px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
   transition:
     border-color 220ms ease,
-    background 220ms ease,
+    box-shadow 220ms ease,
     transform 220ms ease,
-    box-shadow 220ms ease;
+    background 220ms ease;
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent, var(--cyan)) 48%, rgba(255, 255, 255, 0.18));
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 44%, rgba(255, 255, 255, 0.18));
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.095), rgba(255, 255, 255, 0.022) 34%, color-mix(in srgb, var(--accent, var(--cyan)) 8%, transparent) 100%),
-    rgba(12, 19, 31, 0.92);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 38%),
+    rgba(13, 21, 34, 0.78);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 28px 78px rgba(0, 0, 0, 0.44),
-    0 0 52px color-mix(in srgb, var(--accent, var(--cyan)) 16%, transparent);
+    0 28px 68px rgba(0, 0, 0, 0.34),
+    0 0 42px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .project-card::before {
   content: "";
   position: absolute;
-  z-index: 0;
+  inset: 0;
+  background:
+    radial-gradient(circle at 24px 24px, color-mix(in srgb, var(--accent) 24%, transparent), transparent 9rem),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 18%, transparent), transparent 42%);
+  opacity: 0.52;
   pointer-events: none;
 }
 
-.project-card::before {
-  right: 24px;
-  bottom: 24px;
-  width: min(44%, 240px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(207, 224, 244, 0.12);
-  border-radius: 50%;
-  background:
-    linear-gradient(rgba(207, 224, 244, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(207, 224, 244, 0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
-  mask-image: linear-gradient(135deg, transparent 0%, black 28%, black 68%, transparent 100%);
-  opacity: 0.42;
+.project-card::after {
+  content: none;
 }
 
 .project-card .project-meta,
@@ -1259,9 +1263,9 @@ h3 {
   align-items: flex-start;
   justify-content: space-between;
   gap: 28px;
-  margin-bottom: clamp(32px, 3.6vw, 46px);
+  margin-bottom: clamp(20px, 2.4vw, 32px);
   color: color-mix(in srgb, var(--accent, var(--cyan)) 74%, #ffffff 10%);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.45;
   text-transform: uppercase;
@@ -1310,12 +1314,14 @@ h3 {
 }
 
 .project-tags span {
-  padding: 9px 12px;
-  border: 1px solid rgba(201, 213, 232, 0.14);
+  padding: 6px 6px;
+  border: 1px solid rgba(201, 213, 232, 0.08);
   border-radius: 2px;
   color: rgba(230, 242, 255, 0.84);
   background: rgba(255, 255, 255, 0.055);
   font-size: 12px;
+  min-width: 60px;
+  text-align: center;
 }
 
 .case-tabs {
