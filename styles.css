@@ -429,18 +429,25 @@ img {
 }
 
 .signal-proof {
-  display: block;
-  margin-top: 16px;
+  position: absolute;
+  right: 0;
+  bottom: 16px;
+  left: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+  max-width: 520px;
+  padding-top: 0;
+  margin: 0;
+  border-top: 0;
   color: rgba(111, 128, 155, 0.58);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 9px;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
-
-.signal-proof span + span {
-  margin-left: 16px;
 }
 
 .signal-stage {
