@@ -461,24 +461,14 @@ window.addEventListener("resize", alignDateToFrame);
   const experienceList = document.querySelector(".experience-list");
   if (!experienceSection || !experienceList) return;
 
-  let pinActive = false;
-
   window.addEventListener(
     "wheel",
     (e) => {
       const rect = experienceSection.getBoundingClientRect();
-      const sectionTop = rect.top;
-      const sectionBottom = rect.bottom;
       const maxScroll = experienceList.scrollWidth - experienceList.clientWidth;
 
-      // Activate pin when section top reaches viewport top
-      if (sectionTop <= 0 && sectionBottom > window.innerHeight * 0.3) {
-        pinActive = true;
-      } else if (sectionBottom <= 0 || sectionTop > window.innerHeight) {
-        pinActive = false;
-      }
-
-      if (!pinActive) return;
+      // Only intercept when section is visible in viewport
+      if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
 
       if (e.deltaY > 0) {
         // Scrolling down: horizontal first
@@ -486,14 +476,12 @@ window.addEventListener("resize", alignDateToFrame);
           e.preventDefault();
           experienceList.scrollLeft += e.deltaY;
         }
-        // If at end, allow vertical scroll (don't preventDefault)
       } else if (e.deltaY < 0) {
         // Scrolling up: horizontal back first
         if (experienceList.scrollLeft > 0) {
           e.preventDefault();
           experienceList.scrollLeft += e.deltaY;
         }
-        // If at start, allow vertical scroll (don't preventDefault)
       }
     },
     { passive: false }
