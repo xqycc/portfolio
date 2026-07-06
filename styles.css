@@ -1338,7 +1338,34 @@ h3 {
 }
 
 .project-card::after {
-  content: none;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    100px circle at var(--lx, 50%) var(--ly, 50%),
+    rgba(200, 230, 255, 0.9),
+    rgba(100, 170, 255, 0.5) 30%,
+    rgba(40, 100, 255, 0.15) 60%,
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 200ms ease;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.project-card:hover::after {
+  opacity: 1;
 }
 
 .project-card .project-meta,

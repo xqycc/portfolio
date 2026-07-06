@@ -437,6 +437,37 @@ document.querySelectorAll(".experience-item").forEach((card) => {
   });
 });
 
+// Project card border-following light effect
+document.querySelectorAll(".project-card").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const dx = mx - cx;
+    const dy = my - cy;
+
+    const absDx = Math.abs(dx);
+    const absDy = Math.abs(dy);
+    let bx, by;
+    if (absDx * rect.height > absDy * rect.width) {
+      const sign = dx > 0 ? 1 : -1;
+      bx = cx + sign * cx;
+      by = cy + (dy / absDx) * cx;
+    } else {
+      const sign = dy > 0 ? 1 : -1;
+      bx = cx + (dx / absDy) * cy;
+      by = cy + sign * cy;
+    }
+
+    const lx = (bx / rect.width) * 100;
+    const ly = (by / rect.height) * 100;
+    card.style.setProperty("--lx", lx + "%");
+    card.style.setProperty("--ly", ly + "%");
+  });
+});
+
 // Align date's right edge with 16px inside the square frame
 function alignDateToFrame() {
   const hero = document.querySelector(".signal-hero");
