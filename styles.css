@@ -444,7 +444,7 @@ img {
   border-top: 0;
   color: rgba(111, 128, 155, 0.58);
   font-size: 11px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -608,11 +608,11 @@ img {
 .signal-hud-footer {
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
+  padding: 0 16px;
   border-top: 0;
   color: rgba(111, 128, 155, 0.58);
   font-size: 11px;
