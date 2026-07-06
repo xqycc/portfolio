@@ -402,3 +402,55 @@ document.addEventListener("keydown", (event) => {
     switchLightboxImage(-1);
   }
 });
+
+// Experience card border-following light effect
+document.querySelectorAll(".experience-item").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const dx = mx - cx;
+    const dy = my - cy;
+
+    // Find where ray from center intersects the border
+    const absDx = Math.abs(dx);
+    const absDy = Math.abs(dy);
+    let bx, by;
+    if (absDx * rect.height > absDy * rect.width) {
+      // Intersects left or right edge
+      const sign = dx > 0 ? 1 : -1;
+      bx = cx + sign * cx;
+      by = cy + (dy / absDx) * cx;
+    } else {
+      // Intersects top or bottom edge
+      const sign = dy > 0 ? 1 : -1;
+      bx = cx + (dx / absDy) * cy;
+      by = cy + sign * cy;
+    }
+
+    const lx = (bx / rect.width) * 100;
+    const ly = (by / rect.height) * 100;
+    card.style.setProperty("--lx", lx + "%");
+    card.style.setProperty("--ly", ly + "%");
+  });
+});
+
+// Align date's right edge with 16px inside the square frame
+function alignDateToFrame() {
+  const hero = document.querySelector(".signal-hero");
+  const frame = document.querySelector(".signal-frame");
+  const dateEl = document.querySelector(".signal-date");
+  if (!hero || !frame || !dateEl) return;
+
+  const heroRect = hero.getBoundingClientRect();
+  const frameRect = frame.getBoundingClientRect();
+  // Distance from hero's right edge to frame's right edge
+  const offset = heroRect.right - frameRect.right;
+  // Date should be 16px inside the frame's right edge
+  dateEl.style.marginRight = (offset + 16) + "px";
+}
+
+window.addEventListener("load", alignDateToFrame);
+window.addEventListener("resize", alignDateToFrame);
