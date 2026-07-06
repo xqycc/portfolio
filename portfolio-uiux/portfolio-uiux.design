@@ -1,0 +1,1216 @@
+{
+  "data": [
+    {
+      "id": "page-index",
+      "title": "首页",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751784000000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/index.html",
+        "interactions": [
+          {
+            "domId": "card-bot",
+            "targetPageId": "page-bot"
+          },
+          {
+            "domId": "card-rpa",
+            "targetPageId": "page-rpa"
+          },
+          {
+            "domId": "card-dashboard",
+            "targetPageId": "page-dashboard"
+          },
+          {
+            "domId": "card-ai-workflow",
+            "targetPageId": "page-ai-workflow"
+          },
+          {
+            "domId": "card-design-driven",
+            "targetPageId": "page-design-driven"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-bot",
+      "title": "东上数科AI外呼",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751784001000,
+      "canvasData": {
+        "x": 620,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/bot.html",
+        "interactions": [
+          {
+            "domId": "back-to-list",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "switch-rpa",
+            "targetPageId": "page-rpa"
+          },
+          {
+            "domId": "switch-dashboard",
+            "targetPageId": "page-dashboard"
+          },
+          {
+            "domId": "switch-ai-workflow",
+            "targetPageId": "page-ai-workflow"
+          },
+          {
+            "domId": "switch-design-driven",
+            "targetPageId": "page-design-driven"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-rpa",
+      "title": "U途RPA",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751784002000,
+      "canvasData": {
+        "x": 620,
+        "y": 774,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/rpa.html",
+        "interactions": [
+          {
+            "domId": "back-to-list",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "switch-bot",
+            "targetPageId": "page-bot"
+          },
+          {
+            "domId": "switch-dashboard",
+            "targetPageId": "page-dashboard"
+          },
+          {
+            "domId": "switch-ai-workflow",
+            "targetPageId": "page-ai-workflow"
+          },
+          {
+            "domId": "switch-design-driven",
+            "targetPageId": "page-design-driven"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-dashboard",
+      "title": "可视化大屏",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751784003000,
+      "canvasData": {
+        "x": 620,
+        "y": 2446,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/dashboard.html",
+        "interactions": [
+          {
+            "domId": "back-to-list",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "switch-bot",
+            "targetPageId": "page-bot"
+          },
+          {
+            "domId": "switch-rpa",
+            "targetPageId": "page-rpa"
+          },
+          {
+            "domId": "switch-ai-workflow",
+            "targetPageId": "page-ai-workflow"
+          },
+          {
+            "domId": "switch-design-driven",
+            "targetPageId": "page-design-driven"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-ai-workflow",
+      "title": "AI 工作流设计探索",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751784004000,
+      "canvasData": {
+        "x": 620,
+        "y": 3149,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/ai-workflow.html",
+        "interactions": [
+          {
+            "domId": "back-to-list",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "switch-bot",
+            "targetPageId": "page-bot"
+          },
+          {
+            "domId": "switch-rpa",
+            "targetPageId": "page-rpa"
+          },
+          {
+            "domId": "switch-dashboard",
+            "targetPageId": "page-dashboard"
+          },
+          {
+            "domId": "switch-design-driven",
+            "targetPageId": "page-design-driven"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-design-driven",
+      "title": "设计自驱动",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751784005000,
+      "canvasData": {
+        "x": 620,
+        "y": 3549,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/design-driven.html",
+        "interactions": [
+          {
+            "domId": "back-to-list",
+            "targetPageId": "page-index",
+            "hideEdge": true
+          },
+          {
+            "domId": "switch-bot",
+            "targetPageId": "page-bot"
+          },
+          {
+            "domId": "switch-rpa",
+            "targetPageId": "page-rpa"
+          },
+          {
+            "domId": "switch-dashboard",
+            "targetPageId": "page-dashboard"
+          },
+          {
+            "domId": "switch-ai-workflow",
+            "targetPageId": "page-ai-workflow"
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-001",
+      "title": "AI 工作流探索设计稿",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100001,
+      "canvasData": {
+        "x": 0,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/1.png"
+      }
+    },
+    {
+      "id": "image-002",
+      "title": "设计自驱动封面",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100002,
+      "canvasData": {
+        "x": 620,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/2.png"
+      }
+    },
+    {
+      "id": "image-003",
+      "title": "AI外呼项目封面",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100003,
+      "canvasData": {
+        "x": 1240,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/3.png"
+      }
+    },
+    {
+      "id": "image-004",
+      "title": "AI外呼设计目标",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100004,
+      "canvasData": {
+        "x": 1860,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/4.png"
+      }
+    },
+    {
+      "id": "image-005",
+      "title": "AI外呼设计策略",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100005,
+      "canvasData": {
+        "x": 2480,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/5.png"
+      }
+    },
+    {
+      "id": "image-006",
+      "title": "Bot流程设计页面",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100006,
+      "canvasData": {
+        "x": 3100,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/6.png"
+      }
+    },
+    {
+      "id": "image-007",
+      "title": "Bot流程配置页面",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100007,
+      "canvasData": {
+        "x": 3720,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/7.png"
+      }
+    },
+    {
+      "id": "image-008",
+      "title": "Bot对话流程页面",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100008,
+      "canvasData": {
+        "x": 4340,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/8.png"
+      }
+    },
+    {
+      "id": "image-009",
+      "title": "Bot界面设计一",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100009,
+      "canvasData": {
+        "x": 4960,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/9.png"
+      }
+    },
+    {
+      "id": "image-010",
+      "title": "Bot界面设计二",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100010,
+      "canvasData": {
+        "x": 5580,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/10.png"
+      }
+    },
+    {
+      "id": "image-011",
+      "title": "Bot界面设计三",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100011,
+      "canvasData": {
+        "x": 6200,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/11.png"
+      }
+    },
+    {
+      "id": "image-012",
+      "title": "Bot数据展示一",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100012,
+      "canvasData": {
+        "x": 6820,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/12.png"
+      }
+    },
+    {
+      "id": "image-013",
+      "title": "Bot数据展示二",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100013,
+      "canvasData": {
+        "x": 7440,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/13.png"
+      }
+    },
+    {
+      "id": "image-014",
+      "title": "Bot数据展示三",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100014,
+      "canvasData": {
+        "x": 8060,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/14.png"
+      }
+    },
+    {
+      "id": "image-015",
+      "title": "RPA项目封面",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100015,
+      "canvasData": {
+        "x": 8680,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/15.png"
+      }
+    },
+    {
+      "id": "image-016",
+      "title": "RPA改版背景",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100016,
+      "canvasData": {
+        "x": 9300,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/16.png"
+      }
+    },
+    {
+      "id": "image-017",
+      "title": "RPA设计目标",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100017,
+      "canvasData": {
+        "x": 9920,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/17.png"
+      }
+    },
+    {
+      "id": "image-018",
+      "title": "RPA减少停留策略",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100018,
+      "canvasData": {
+        "x": 10540,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/18.png"
+      }
+    },
+    {
+      "id": "image-019",
+      "title": "RPA列表降噪方案",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100019,
+      "canvasData": {
+        "x": 11160,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/19.png"
+      }
+    },
+    {
+      "id": "image-020",
+      "title": "RPA心流式搭建策略",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100020,
+      "canvasData": {
+        "x": 11780,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/20.png"
+      }
+    },
+    {
+      "id": "image-021",
+      "title": "RPA工具触达方案",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100021,
+      "canvasData": {
+        "x": 12400,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/21.png"
+      }
+    },
+    {
+      "id": "image-022",
+      "title": "RPA快捷操作方案",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100022,
+      "canvasData": {
+        "x": 13020,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/22.png"
+      }
+    },
+    {
+      "id": "image-023",
+      "title": "RPA配置优化",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100023,
+      "canvasData": {
+        "x": 13640,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/23.png"
+      }
+    },
+    {
+      "id": "image-024",
+      "title": "RPA任务流程设计",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100024,
+      "canvasData": {
+        "x": 14260,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/24.png"
+      }
+    },
+    {
+      "id": "image-025",
+      "title": "RPA最终效果",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100025,
+      "canvasData": {
+        "x": 14880,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/25.png"
+      }
+    },
+    {
+      "id": "image-026",
+      "title": "RPA设计总结",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100026,
+      "canvasData": {
+        "x": 15500,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/26.png"
+      }
+    },
+    {
+      "id": "image-027",
+      "title": "RPA延伸设计",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100027,
+      "canvasData": {
+        "x": 16120,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/27.png"
+      }
+    },
+    {
+      "id": "image-028",
+      "title": "可视化大屏项目封面",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100028,
+      "canvasData": {
+        "x": 16740,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/28.png"
+      }
+    },
+    {
+      "id": "image-029",
+      "title": "政务大屏设计一",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100029,
+      "canvasData": {
+        "x": 17360,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/29.png"
+      }
+    },
+    {
+      "id": "image-030",
+      "title": "政务大屏设计二",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100030,
+      "canvasData": {
+        "x": 17980,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/30.png"
+      }
+    },
+    {
+      "id": "image-031",
+      "title": "校园监控大屏",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100031,
+      "canvasData": {
+        "x": 18600,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/31.png"
+      }
+    },
+    {
+      "id": "image-032",
+      "title": "Web监控平台",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100032,
+      "canvasData": {
+        "x": 19220,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/32.png"
+      }
+    },
+    {
+      "id": "image-033",
+      "title": "AI工作流探索一",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100033,
+      "canvasData": {
+        "x": 19840,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/33.png"
+      }
+    },
+    {
+      "id": "image-034",
+      "title": "AI工作流探索二",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100034,
+      "canvasData": {
+        "x": 20460,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/34.png"
+      }
+    },
+    {
+      "id": "image-035",
+      "title": "AI工作流探索三",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100035,
+      "canvasData": {
+        "x": 21080,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/35.png"
+      }
+    },
+    {
+      "id": "image-036",
+      "title": "作品缩略图 1",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100036,
+      "canvasData": {
+        "x": 21700,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/1.jpg"
+      }
+    },
+    {
+      "id": "image-037",
+      "title": "作品缩略图 2",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100037,
+      "canvasData": {
+        "x": 22320,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/2.jpg"
+      }
+    },
+    {
+      "id": "image-038",
+      "title": "作品缩略图 3",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100038,
+      "canvasData": {
+        "x": 22940,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/3.jpg"
+      }
+    },
+    {
+      "id": "image-039",
+      "title": "作品缩略图 4",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100039,
+      "canvasData": {
+        "x": 23560,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/4.jpg"
+      }
+    },
+    {
+      "id": "image-040",
+      "title": "作品缩略图 5",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100040,
+      "canvasData": {
+        "x": 24180,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/5.jpg"
+      }
+    },
+    {
+      "id": "image-041",
+      "title": "作品缩略图 6",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100041,
+      "canvasData": {
+        "x": 24800,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/6.jpg"
+      }
+    },
+    {
+      "id": "image-042",
+      "title": "作品缩略图 7",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100042,
+      "canvasData": {
+        "x": 25420,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/7.jpg"
+      }
+    },
+    {
+      "id": "image-043",
+      "title": "作品缩略图 8",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100043,
+      "canvasData": {
+        "x": 26040,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/8.jpg"
+      }
+    },
+    {
+      "id": "image-044",
+      "title": "作品缩略图 9",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100044,
+      "canvasData": {
+        "x": 26660,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/9.jpg"
+      }
+    },
+    {
+      "id": "image-045",
+      "title": "作品缩略图 10",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100045,
+      "canvasData": {
+        "x": 27280,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/10.jpg"
+      }
+    },
+    {
+      "id": "image-046",
+      "title": "作品缩略图 11",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100046,
+      "canvasData": {
+        "x": 27900,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/11.jpg"
+      }
+    },
+    {
+      "id": "image-047",
+      "title": "作品缩略图 12",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100047,
+      "canvasData": {
+        "x": 28520,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/12.jpg"
+      }
+    },
+    {
+      "id": "image-048",
+      "title": "作品缩略图 13",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100048,
+      "canvasData": {
+        "x": 29140,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/13.jpg"
+      }
+    },
+    {
+      "id": "image-049",
+      "title": "作品缩略图 14",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100049,
+      "canvasData": {
+        "x": 29760,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/14.jpg"
+      }
+    },
+    {
+      "id": "image-050",
+      "title": "作品缩略图 15",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100050,
+      "canvasData": {
+        "x": 30380,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/15.jpg"
+      }
+    },
+    {
+      "id": "image-051",
+      "title": "作品缩略图 16",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100051,
+      "canvasData": {
+        "x": 31000,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/16.jpg"
+      }
+    },
+    {
+      "id": "image-052",
+      "title": "作品缩略图 17",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100052,
+      "canvasData": {
+        "x": 31620,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/17.jpg"
+      }
+    },
+    {
+      "id": "image-053",
+      "title": "作品缩略图 18",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100053,
+      "canvasData": {
+        "x": 32240,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/18.jpg"
+      }
+    },
+    {
+      "id": "image-054",
+      "title": "作品缩略图 19",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100054,
+      "canvasData": {
+        "x": 32860,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/19.jpg"
+      }
+    },
+    {
+      "id": "image-055",
+      "title": "作品缩略图 20",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100055,
+      "canvasData": {
+        "x": 33480,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/20.jpg"
+      }
+    },
+    {
+      "id": "image-056",
+      "title": "作品缩略图 21",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100056,
+      "canvasData": {
+        "x": 34100,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/21.jpg"
+      }
+    },
+    {
+      "id": "image-057",
+      "title": "作品缩略图 22",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100057,
+      "canvasData": {
+        "x": 34720,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/22.jpg"
+      }
+    },
+    {
+      "id": "image-058",
+      "title": "作品缩略图 23",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100058,
+      "canvasData": {
+        "x": 35340,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/23.jpg"
+      }
+    },
+    {
+      "id": "image-059",
+      "title": "作品缩略图 24",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100059,
+      "canvasData": {
+        "x": 35960,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/24.jpg"
+      }
+    },
+    {
+      "id": "image-060",
+      "title": "作品缩略图 25",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100060,
+      "canvasData": {
+        "x": 36580,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/25.jpg"
+      }
+    },
+    {
+      "id": "image-061",
+      "title": "作品缩略图 26",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100061,
+      "canvasData": {
+        "x": 37200,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/26.jpg"
+      }
+    },
+    {
+      "id": "image-062",
+      "title": "作品缩略图 27",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100062,
+      "canvasData": {
+        "x": 37820,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/27.jpg"
+      }
+    },
+    {
+      "id": "image-063",
+      "title": "作品缩略图 28",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100063,
+      "canvasData": {
+        "x": 38440,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/28.jpg"
+      }
+    },
+    {
+      "id": "image-064",
+      "title": "作品缩略图 29",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100064,
+      "canvasData": {
+        "x": 39060,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/29.jpg"
+      }
+    },
+    {
+      "id": "image-065",
+      "title": "作品缩略图 30",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100065,
+      "canvasData": {
+        "x": 39680,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/30.jpg"
+      }
+    },
+    {
+      "id": "image-066",
+      "title": "作品缩略图 31",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100066,
+      "canvasData": {
+        "x": 40300,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/31.jpg"
+      }
+    },
+    {
+      "id": "image-067",
+      "title": "作品缩略图 32",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100067,
+      "canvasData": {
+        "x": 40920,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/32.jpg"
+      }
+    },
+    {
+      "id": "image-068",
+      "title": "作品缩略图 33",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100068,
+      "canvasData": {
+        "x": 41540,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/33.jpg"
+      }
+    },
+    {
+      "id": "image-069",
+      "title": "作品缩略图 34",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100069,
+      "canvasData": {
+        "x": 42160,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/34.jpg"
+      }
+    },
+    {
+      "id": "image-070",
+      "title": "作品缩略图 35",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1751784100070,
+      "canvasData": {
+        "x": 42780,
+        "y": 3991
+      },
+      "devMetadata": {
+        "imageSrc": "assets/35.jpg"
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "projectName": "徐钦阳 UI/UX 作品集"
+  }
+}

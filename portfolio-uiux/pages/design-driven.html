@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计自驱动｜徐钦阳作品集</title>
+    <style id="theme-vars">
+/* ── Brand Design Tokens ── */
+/* 徐钦阳 UI/UX Portfolio — Dark Tech Style */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Core Palette ── */
+  --color-bg: #080c13;
+  --color-bg-soft: #0d1420;
+  --color-bg-body:
+    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.035), transparent 34rem),
+    radial-gradient(circle at 10% 18%, rgba(255, 255, 255, 0.018), transparent 26rem),
+    linear-gradient(180deg, #10131a 0%, #0d1016 48%, #090b10 100%);
+
+  --color-surface: rgba(16, 24, 39, 0.72);
+  --color-surface-strong: rgba(20, 31, 51, 0.92);
+  --color-border: rgba(156, 187, 226, 0.16);
+  --color-border-strong: rgba(156, 187, 226, 0.28);
+
+  --color-text-primary: #f7fbff;
+  --color-text-secondary: #9fb0c8;
+  --color-text-muted: #6f809b;
+
+  --color-primary: #1d8cff;
+  --color-primary-tint: rgba(29, 140, 255, 0.12);
+
+  /* ── Accent Colors (project-specific, used as --accent inline) ── */
+  --color-cyan: #20d4ff;
+  --color-blue: #55a8ff;
+  --color-green: #38d8a0;
+  --color-purple: #8a7cff;
+  --color-orange: #f5b05d;
+
+  /* ── State Colors ── */
+  --state-success: #32d98b;
+  --state-warning: #ff9f43;
+  --state-error: #ff4d6a;
+  --state-info: #20d4ff;
+
+  /* ── Radius Scale ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* ── Spacing ── */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 88px;
+
+  /* ── Layout ── */
+  --max-width: 1180px;
+  --max-width-hero: 1760px;
+  --topbar-height: 76px;
+
+  /* ── Shadows (border-first, minimal shadow) ── */
+  --shadow-surface: 0 1px 0 rgba(156, 187, 226, 0.06);
+  --shadow-elevated: 0 4px 24px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(156, 187, 226, 0.08);
+  --shadow-floating: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 0 rgba(156, 187, 226, 0.06);
+
+  /* ── Typography ── */
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.75rem;
+  --font-size-5xl: 3.5rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+
+  /* ── Transitions ── */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-primary: var(--color-primary);
+    --color-border: var(--color-border);
+  }
+  @layer base {
+    body { background: var(--color-surface); color: var(--color-text-primary); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+      <!-- Topbar -->
+      <header class="fixed top-0 left-0 w-full z-50" style="background: var(--color-bg); border-bottom: 1px solid var(--color-border); height: var(--topbar-height);">
+        <div class="flex items-center justify-between h-full px-6 lg:px-10" style="max-width: var(--max-width-hero); margin: 0 auto;">
+          <a href="index.html" class="flex items-center gap-2 no-underline" style="color: var(--color-text-primary); transition: color var(--transition-fast);">
+            <span class="text-sm font-semibold tracking-tight" style="color: var(--color-text-primary);">UI/UX Portfolio</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="text-sm no-underline" style="color: var(--color-text-muted); transition: color var(--transition-fast);">简介</a>
+            <a href="index.html" class="text-sm no-underline" style="color: var(--color-text-muted); transition: color var(--transition-fast);">工作经历</a>
+            <a href="index.html" class="text-sm no-underline" style="color: var(--color-primary); transition: color var(--transition-fast);">精选案例</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="flex min-h-screen" style="padding-top: var(--topbar-height);">
+        <!-- Sidebar Anchor -->
+        <aside class="hidden lg:flex flex-col items-center justify-start pt-8 shrink-0" style="width: 80px; background: var(--color-bg);">
+          <a href="index.html" data-dom-id="back-to-list" class="flex flex-col items-center gap-2 no-underline group" style="color: var(--color-text-muted); transition: color var(--transition-fast);">
+            <i data-lucide="arrow-left" class="w-5 h-5" style="transition: transform var(--transition-fast);"></i>
+            <span class="text-xs whitespace-nowrap" style="color: var(--color-text-muted);">返回项目</span>
+          </a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 min-w-0">
+          <!-- Hero: Single full-width image -->
+          <section class="w-full">
+            <div class="w-full">
+              <img src="../assets/34.jpg" alt="设计自驱动项目封面" class="block w-full h-auto" />
+            </div>
+          </section>
+
+          <!-- Project Switch -->
+          <section class="px-6 lg:px-12 py-12 lg:py-16" style="background: var(--color-bg);">
+            <div style="max-width: var(--max-width); margin: 0 auto;">
+              <h2 class="text-lg font-semibold mb-8" style="color: var(--color-text-primary); text-wrap: balance; word-break: keep-all;">切换到其他作品</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Card 1: 东上数科AI外呼 (next project) -->
+                <a href="bot.html" data-dom-id="switch-bot" class="group flex flex-col rounded-lg overflow-hidden no-underline" style="background: var(--color-surface); border: 1px solid var(--color-border); transition: border-color var(--transition-fast), transform var(--transition-fast);">
+                  <div class="flex items-center gap-3 px-4 py-3" style="border-bottom: 1px solid var(--color-border);">
+                    <span class="text-xs font-mono" style="color: var(--color-primary);">01</span>
+                    <span class="text-sm font-medium truncate" style="color: var(--color-text-primary);">东上数科AI外呼</span>
+                  </div>
+                  <div class="px-4 py-3">
+                    <span class="text-xs" style="color: var(--color-text-muted);">下一个项目</span>
+                  </div>
+                </a>
+
+                <!-- Card 2: U途RPA -->
+                <a href="rpa.html" data-dom-id="switch-rpa" class="group flex flex-col rounded-lg overflow-hidden no-underline" style="background: var(--color-surface); border: 1px solid var(--color-border); transition: border-color var(--transition-fast), transform var(--transition-fast);">
+                  <div class="flex items-center gap-3 px-4 py-3" style="border-bottom: 1px solid var(--color-border);">
+                    <span class="text-xs font-mono" style="color: var(--color-text-muted);">02</span>
+                    <span class="text-sm font-medium truncate" style="color: var(--color-text-primary);">U途RPA</span>
+                  </div>
+                  <div class="px-4 py-3">
+                    <span class="text-xs" style="color: var(--color-text-muted);">流程自动化</span>
+                  </div>
+                </a>
+
+                <!-- Card 3: 可视化大屏 -->
+                <a href="dashboard.html" data-dom-id="switch-dashboard" class="group flex flex-col rounded-lg overflow-hidden no-underline" style="background: var(--color-surface); border: 1px solid var(--color-border); transition: border-color var(--transition-fast), transform var(--transition-fast);">
+                  <div class="flex items-center gap-3 px-4 py-3" style="border-bottom: 1px solid var(--color-border);">
+                    <span class="text-xs font-mono" style="color: var(--color-text-muted);">03</span>
+                    <span class="text-sm font-medium truncate" style="color: var(--color-text-primary);">可视化大屏</span>
+                  </div>
+                  <div class="px-4 py-3">
+                    <span class="text-xs" style="color: var(--color-text-muted);">数据可视化</span>
+                  </div>
+                </a>
+
+                <!-- Card 4: AI 工作流 -->
+                <a href="ai-workflow.html" data-dom-id="switch-ai-workflow" class="group flex flex-col rounded-lg overflow-hidden no-underline" style="background: var(--color-surface); border: 1px solid var(--color-border); transition: border-color var(--transition-fast), transform var(--transition-fast);">
+                  <div class="flex items-center gap-3 px-4 py-3" style="border-bottom: 1px solid var(--color-border);">
+                    <span class="text-xs font-mono" style="color: var(--color-text-muted);">04</span>
+                    <span class="text-sm font-medium truncate" style="color: var(--color-text-primary);">AI 工作流</span>
+                  </div>
+                  <div class="px-4 py-3">
+                    <span class="text-xs" style="color: var(--color-text-muted);">设计探索</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script>lucide.createIcons();</script>
+    <style>
+      /* Hover interactions */
+      [data-dom-id="back-to-list"]:hover {
+        color: var(--color-text-primary) !important;
+      }
+      [data-dom-id="back-to-list"]:hover i {
+        transform: translateX(-2px);
+      }
+      [data-dom-id^="switch-"]:hover {
+        border-color: var(--color-border-strong) !important;
+        transform: translateY(-2px);
+      }
+      [data-dom-id^="switch-"]:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { transition-duration: 0.01ms !important; }
+      }
+    </style>
+</body>
+</html>

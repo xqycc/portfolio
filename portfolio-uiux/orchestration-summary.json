@@ -1,0 +1,38 @@
+{
+  "project": {
+    "name": "徐钦阳 UI/UX 作品集",
+    "operatingMode": "free-explore",
+    "deviceType": "desktop",
+    "styleDefinitionBrief": "Dark tech portfolio for UI/UX designer, deep navy background with cyan/blue accents, Inter + PingFang SC, clean editorial layout with image-driven project showcases.",
+    "designSource": {
+      "type": "free-explore",
+      "styleConstraints": {
+        "radiusMax": 12,
+        "spacingBase": 8,
+        "fontSizeBody": 16,
+        "staticShadowAlphaMax": 0.05
+      }
+    },
+    "replicationMode": "high-fidelity"
+  },
+  "pages": [
+    { "nodeId": "page-index", "title": "首页", "htmlSrc": "pages/index.html", "pageIndex": 1, "pageType": "showcase" },
+    { "nodeId": "page-bot", "title": "东上数科AI外呼", "htmlSrc": "pages/bot.html", "pageIndex": 2, "pageType": "showcase" },
+    { "nodeId": "page-rpa", "title": "U途RPA", "htmlSrc": "pages/rpa.html", "pageIndex": 3, "pageType": "showcase" },
+    { "nodeId": "page-dashboard", "title": "可视化大屏", "htmlSrc": "pages/dashboard.html", "pageIndex": 4, "pageType": "showcase" },
+    { "nodeId": "page-ai-workflow", "title": "AI 工作流设计探索", "htmlSrc": "pages/ai-workflow.html", "pageIndex": 5, "pageType": "showcase" },
+    { "nodeId": "page-design-driven", "title": "设计自驱动", "htmlSrc": "pages/design-driven.html", "pageIndex": 6, "pageType": "showcase" }
+  ],
+  "wiringMap": [
+    { "from": "page-index", "to": "page-bot", "domId": "card-bot", "hideEdge": false },
+    { "from": "page-index", "to": "page-rpa", "domId": "card-rpa", "hideEdge": false },
+    { "from": "page-index", "to": "page-dashboard", "domId": "card-dashboard", "hideEdge": false },
+    { "from": "page-index", "to": "page-ai-workflow", "domId": "card-ai-workflow", "hideEdge": false },
+    { "from": "page-index", "to": "page-design-driven", "domId": "card-design-driven", "hideEdge": false },
+    { "from": "page-bot", "to": "page-index", "domId": "back-to-list", "hideEdge": true },
+    { "from": "page-rpa", "to": "page-index", "domId": "back-to-list", "hideEdge": true },
+    { "from": "page-dashboard", "to": "page-index", "domId": "back-to-list", "hideEdge": true },
+    { "from": "page-ai-workflow", "to": "page-index", "domId": "back-to-list", "hideEdge": true },
+    { "from": "page-design-driven", "to": "page-index", "domId": "back-to-list", "hideEdge": true }
+  ]
+}

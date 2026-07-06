@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U途RPA 设计探索</title>
+    <style id="theme-vars">
+/* ── Brand Design Tokens ── */
+/* 徐钦阳 UI/UX Portfolio — Dark Tech Style */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Core Palette ── */
+  --color-bg: #080c13;
+  --color-bg-soft: #0d1420;
+  --color-bg-body:
+    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.035), transparent 34rem),
+    radial-gradient(circle at 10% 18%, rgba(255, 255, 255, 0.018), transparent 26rem),
+    linear-gradient(180deg, #10131a 0%, #0d1016 48%, #090b10 100%);
+
+  --color-surface: rgba(16, 24, 39, 0.72);
+  --color-surface-strong: rgba(20, 31, 51, 0.92);
+  --color-border: rgba(156, 187, 226, 0.16);
+  --color-border-strong: rgba(156, 187, 226, 0.28);
+
+  --color-text-primary: #f7fbff;
+  --color-text-secondary: #9fb0c8;
+  --color-text-muted: #6f809b;
+
+  --color-primary: #1d8cff;
+  --color-primary-tint: rgba(29, 140, 255, 0.12);
+
+  /* ── Accent Colors (project-specific, used as --accent inline) ── */
+  --color-cyan: #20d4ff;
+  --color-blue: #55a8ff;
+  --color-green: #38d8a0;
+  --color-purple: #8a7cff;
+  --color-orange: #f5b05d;
+
+  /* ── State Colors ── */
+  --state-success: #32d98b;
+  --state-warning: #ff9f43;
+  --state-error: #ff4d6a;
+  --state-info: #20d4ff;
+
+  /* ── Radius Scale ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* ── Spacing ── */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 88px;
+
+  /* ── Layout ── */
+  --max-width: 1180px;
+  --max-width-hero: 1760px;
+  --topbar-height: 76px;
+
+  /* ── Shadows (border-first, minimal shadow) ── */
+  --shadow-surface: 0 1px 0 rgba(156, 187, 226, 0.06);
+  --shadow-elevated: 0 4px 24px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(156, 187, 226, 0.08);
+  --shadow-floating: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 0 rgba(156, 187, 226, 0.06);
+
+  /* ── Typography ── */
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.75rem;
+  --font-size-5xl: 3.5rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+
+  /* ── Transitions ── */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-primary: var(--color-primary);
+    --color-border: var(--color-border);
+  }
+  @layer base {
+    body { background: var(--color-surface); color: var(--color-text-primary); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+      <!-- ── Topbar ── -->
+      <header class="fixed top-0 left-0 w-full z-50" style="background: var(--color-bg); border-bottom: 1px solid var(--color-border);">
+        <div class="mx-auto flex items-center justify-between" style="max-width: var(--max-width-hero); height: var(--topbar-height); padding: 0 32px;">
+          <a href="index.html" class="flex items-center gap-3 group" style="text-decoration: none;">
+            <span class="text-sm font-semibold tracking-tight" style="color: var(--color-text-primary);">UI/UX Portfolio</span>
+          </a>
+          <nav class="flex items-center gap-6">
+            <a href="index.html" class="text-sm transition-colors duration-150 hover:opacity-80" style="color: var(--color-text-secondary); text-decoration: none;">首页</a>
+            <a href="index.html#works" class="text-sm font-medium transition-colors duration-150" style="color: var(--color-primary); text-decoration: none;" data-dom-id="nav-works">精选案例</a>
+            <a href="index.html#about" class="text-sm transition-colors duration-150 hover:opacity-80" style="color: var(--color-text-secondary); text-decoration: none;">关于</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- ── Page Shell: Sidebar + Content ── -->
+      <div class="mx-auto flex" style="max-width: var(--max-width-hero); padding-top: var(--topbar-height);">
+
+        <!-- Left Sidebar -->
+        <aside class="hidden lg:flex flex-col flex-shrink-0 sticky top-[var(--topbar-height)] self-start" style="width: 220px; padding: 40px 0 40px 32px;">
+          <a href="index.html#works" class="flex items-center gap-2 text-sm transition-colors duration-150 hover:opacity-80 mb-8" style="color: var(--color-text-muted); text-decoration: none;" data-dom-id="back-to-list">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>返回项目</span>
+          </a>
+          <nav class="flex flex-col gap-1">
+            <a href="#hero" class="text-sm transition-colors duration-150 py-2 hover:opacity-80" style="color: var(--color-text-secondary); text-decoration: none;">项目封面</a>
+            <a href="#background" class="text-sm transition-colors duration-150 py-2 hover:opacity-80" style="color: var(--color-text-secondary); text-decoration: none;">背景</a>
+            <a href="#strategy" class="text-sm transition-colors duration-150 py-2 hover:opacity-80" style="color: var(--color-text-secondary); text-decoration: none;">策略</a>
+            <a href="#implementation" class="text-sm transition-colors duration-150 py-2 hover:opacity-80" style="color: var(--color-text-secondary); text-decoration: none;">方案落地</a>
+            <a href="#more" class="text-sm transition-colors duration-150 py-2 hover:opacity-80" style="color: var(--color-text-secondary); text-decoration: none;">流程与效果</a>
+            <a href="#summary" class="text-sm transition-colors duration-150 py-2 hover:opacity-80" style="color: var(--color-text-secondary); text-decoration: none;">总结</a>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 min-w-0" style="padding: 0 32px 88px;">
+
+          <!-- Hero Section -->
+          <section id="hero" class="pt-12 lg:pt-16 pb-16">
+            <h1 class="text-3xl lg:text-5xl font-semibold tracking-tight mb-4" style="color: var(--color-text-primary); line-height: var(--line-height-tight); text-wrap: balance; word-break: keep-all; overflow-wrap: break-word;">U途RPA</h1>
+            <p class="text-base lg:text-lg mb-10" style="color: var(--color-text-secondary); max-width: 640px; line-height: var(--line-height-normal);">RPA 产品体验优化设计，通过减少停留、降噪和心流式搭建策略，提升自动化配置效率。</p>
+            <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+              <img src="../assets/15.jpg" alt="U途RPA项目封面" class="w-full block" style="aspect-ratio: 16/10; object-fit: cover;">
+            </div>
+          </section>
+
+          <!-- Background Section -->
+          <section id="background" class="pb-16">
+            <h2 class="text-xl lg:text-2xl font-semibold tracking-tight mb-8" style="color: var(--color-text-primary); text-wrap: balance; word-break: keep-all;">背景</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                <img src="../assets/16.jpg" alt="RPA 改版背景" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+              </div>
+              <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                <img src="../assets/17.jpg" alt="设计目标" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+              </div>
+            </div>
+          </section>
+
+          <!-- Strategy Section -->
+          <section id="strategy" class="pb-16">
+            <h2 class="text-xl lg:text-2xl font-semibold tracking-tight mb-8" style="color: var(--color-text-primary); text-wrap: balance; word-break: keep-all;">策略</h2>
+            <div class="flex flex-col gap-6">
+              <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                <img src="../assets/18.jpg" alt="减少停留策略" class="w-full block" style="aspect-ratio: 16/10; object-fit: cover;">
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                  <img src="../assets/19.jpg" alt="列表信息降噪" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+                <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                  <img src="../assets/20.jpg" alt="心流式搭建策略" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Implementation Section -->
+          <section id="implementation" class="pb-16">
+            <h2 class="text-xl lg:text-2xl font-semibold tracking-tight mb-8" style="color: var(--color-text-primary); text-wrap: balance; word-break: keep-all;">方案落地</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                <img src="../assets/21.jpg" alt="工具触达方案" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+              </div>
+              <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                <img src="../assets/22.jpg" alt="快捷操作方案" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+              </div>
+              <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                <img src="../assets/23.jpg" alt="RPA 配置优化" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+              </div>
+            </div>
+          </section>
+
+          <!-- More Section -->
+          <section id="more" class="pb-16">
+            <h2 class="text-xl lg:text-2xl font-semibold tracking-tight mb-8" style="color: var(--color-text-primary); text-wrap: balance; word-break: keep-all;">流程与效果</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                <img src="../assets/24.jpg" alt="任务流程设计" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+              </div>
+              <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                <img src="../assets/25.jpg" alt="RPA 最终效果" class="w-full block" style="aspect-ratio: 4/3; object-fit: cover;">
+              </div>
+            </div>
+          </section>
+
+          <!-- Summary Section -->
+          <section id="summary" class="pb-20">
+            <h2 class="text-xl lg:text-2xl font-semibold tracking-tight mb-8" style="color: var(--color-text-primary); text-wrap: balance; word-break: keep-all;">总结</h2>
+            <div class="overflow-hidden" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+              <img src="../assets/26.jpg" alt="RPA 设计总结" class="w-full block" style="aspect-ratio: 16/10; object-fit: cover;">
+            </div>
+          </section>
+
+          <!-- Switch Section -->
+          <section class="pt-8 pb-4">
+            <h2 class="text-xl lg:text-2xl font-semibold tracking-tight mb-8" style="color: var(--color-text-primary); text-wrap: balance; word-break: keep-all;">其他作品</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <!-- Card: 东上数科AI外呼 -->
+              <a href="bot.html" class="group block overflow-hidden transition-transform duration-150 hover:-translate-y-0.5" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; background: var(--color-surface);" data-dom-id="switch-bot">
+                <div class="overflow-hidden">
+                  <img src="../assets/1.jpg" alt="东上数科AI外呼" class="w-full block transition-opacity duration-150 group-hover:opacity-90" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+                <div class="p-4">
+                  <h3 class="text-sm font-medium truncate" style="color: var(--color-text-primary);">东上数科AI外呼</h3>
+                </div>
+              </a>
+              <!-- Card: 可视化大屏 -->
+              <a href="dashboard.html" class="group block overflow-hidden transition-transform duration-150 hover:-translate-y-0.5" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; background: var(--color-surface);" data-dom-id="switch-dashboard">
+                <div class="overflow-hidden">
+                  <img src="../assets/4.jpg" alt="可视化大屏" class="w-full block transition-opacity duration-150 group-hover:opacity-90" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+                <div class="p-4">
+                  <h3 class="text-sm font-medium truncate" style="color: var(--color-text-primary);">可视化大屏</h3>
+                </div>
+              </a>
+              <!-- Card: AI 工作流 (Next) -->
+              <a href="ai-workflow.html" class="group block overflow-hidden transition-transform duration-150 hover:-translate-y-0.5" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; background: var(--color-surface);" data-dom-id="switch-ai-workflow">
+                <div class="overflow-hidden">
+                  <img src="../assets/7.jpg" alt="AI 工作流" class="w-full block transition-opacity duration-150 group-hover:opacity-90" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+                <div class="p-4">
+                  <h3 class="text-sm font-medium truncate" style="color: var(--color-text-primary);">AI 工作流</h3>
+                </div>
+              </a>
+              <!-- Card: 设计自驱动 -->
+              <a href="design-driven.html" class="group block overflow-hidden transition-transform duration-150 hover:-translate-y-0.5" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; background: var(--color-surface);" data-dom-id="switch-design-driven">
+                <div class="overflow-hidden">
+                  <img src="../assets/10.jpg" alt="设计自驱动" class="w-full block transition-opacity duration-150 group-hover:opacity-90" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+                <div class="p-4">
+                  <h3 class="text-sm font-medium truncate" style="color: var(--color-text-primary);">设计自驱动</h3>
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <!-- Next Project Link -->
+          <div class="pt-6 pb-16 flex items-center justify-between">
+            <span class="text-sm" style="color: var(--color-text-muted);">下一篇</span>
+            <a href="ai-workflow.html" class="flex items-center gap-2 text-sm font-medium transition-colors duration-150 hover:opacity-80" style="color: var(--color-primary); text-decoration: none;">
+              <span>AI 工作流设计探索</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
