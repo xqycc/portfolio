@@ -429,9 +429,7 @@ img {
 }
 
 .signal-proof {
-  display: flex;
-  align-items: flex-end;
-  gap: 16px;
+  display: block;
   margin-top: 16px;
   color: rgba(111, 128, 155, 0.58);
   font-size: 11px;
@@ -439,6 +437,10 @@ img {
   line-height: 1;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+}
+
+.signal-proof span + span {
+  margin-left: 16px;
 }
 
 .signal-stage {
