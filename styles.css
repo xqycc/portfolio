@@ -1054,6 +1054,46 @@ h3 {
   overflow: visible;
 }
 
+.exp-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(11, 17, 28, 0.72);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.experience-shell:hover .exp-arrow.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.exp-arrow:hover {
+  border-color: rgba(32, 212, 255, 0.5);
+  color: #fff;
+}
+
+.exp-arrow--left {
+  left: -20px;
+}
+
+.exp-arrow--right {
+  right: -20px;
+}
+
 .experience-list {
   position: relative;
   z-index: 1;

@@ -455,36 +455,39 @@ function alignDateToFrame() {
 window.addEventListener("load", alignDateToFrame);
 window.addEventListener("resize", alignDateToFrame);
 
-// Horizontal-first scroll for experience section
+// Experience cards: button-based horizontal scroll
 (function () {
-  const experienceSection = document.querySelector("#experience");
-  const experienceList = document.querySelector(".experience-list");
-  if (!experienceSection || !experienceList) return;
+  const shell = document.querySelector(".experience-shell");
+  const list = document.querySelector(".experience-list");
+  if (!shell || !list) return;
 
-  window.addEventListener(
-    "wheel",
-    (e) => {
-      const rect = experienceSection.getBoundingClientRect();
-      const maxScroll = experienceList.scrollWidth - experienceList.clientWidth;
-      const viewportMid = window.innerHeight / 2;
+  const btnLeft = document.querySelector(".exp-arrow--left");
+  const btnRight = document.querySelector(".exp-arrow--right");
+  if (!btnLeft || !btnRight) return;
 
-      // Only intercept when section spans the vertical center of viewport
-      if (rect.top > viewportMid || rect.bottom < viewportMid) return;
+  function getCardWidth() {
+    const card = list.querySelector(".experience-item");
+    if (!card) return 360;
+    const style = getComputedStyle(list);
+    return card.offsetWidth + parseInt(style.gap) || 360;
+  }
 
-      if (e.deltaY > 0) {
-        // Scrolling down: horizontal first
-        if (experienceList.scrollLeft < maxScroll) {
-          e.preventDefault();
-          experienceList.scrollLeft += e.deltaY;
-        }
-      } else if (e.deltaY < 0) {
-        // Scrolling up: horizontal back first
-        if (experienceList.scrollLeft > 0) {
-          e.preventDefault();
-          experienceList.scrollLeft += e.deltaY;
-        }
-      }
-    },
-    { passive: false }
-  );
+  function updateArrows() {
+    const maxScroll = list.scrollWidth - list.clientWidth;
+    btnLeft.classList.toggle("is-visible", list.scrollLeft > 2);
+    btnRight.classList.toggle("is-visible", list.scrollLeft < maxScroll - 2);
+  }
+
+  btnRight.addEventListener("click", () => {
+    list.scrollBy({ left: getCardWidth(), behavior: "smooth" });
+  });
+
+  btnLeft.addEventListener("click", () => {
+    list.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
+  });
+
+  list.addEventListener("scroll", updateArrows, { passive: true });
+  window.addEventListener("resize", updateArrows);
+  window.addEventListener("load", updateArrows);
+  updateArrows();
 })();
