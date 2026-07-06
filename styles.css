@@ -431,7 +431,7 @@ img {
 .signal-proof {
   position: absolute;
   right: 0;
-  bottom: 16px;
+  bottom: 0;
   left: 0;
   display: flex;
   align-items: baseline;
@@ -456,7 +456,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: min(84vh, 860px);
+  height: 860px;
   min-height: 620px;
   border: 0;
   border-radius: 0;
@@ -491,7 +491,7 @@ img {
 .signal-frame {
   position: relative;
   z-index: 4;
-  width: min(100%, calc(100vh - 140px));
+  width: 760px;
   max-width: 760px;
   aspect-ratio: 1 / 1;
   border: 1px solid rgba(255, 255, 255, 0.055);
@@ -608,7 +608,7 @@ img {
 .signal-hud-footer {
   left: 0;
   right: 0;
-  bottom: 16px;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
