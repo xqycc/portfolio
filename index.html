@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="徐钦阳 UI/UX 与交互设计作品集，聚焦 B 端产品、AI/RPA、复杂流程与可视化大屏设计。"
+    />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>徐钦阳｜UI/UX 交互设计作品集</title>
+    <link rel="stylesheet" href="styles.css?v=20260702-5" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="返回首页">
+          <strong>UI/UX Portfolio</strong>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="main-nav" aria-label="页面导航">
+          <a href="#profile">简介</a>
+          <a href="#experience">工作经历</a>
+          <a href="#cases">精选案例</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero section signal-hero" id="profile">
+          <div class="signal-webgl" id="webgl-container"></div>
+          <div class="signal-copy reveal">
+            <h1>
+              我承担复杂的思考，<br />
+              <span>只为给你简单的直觉</span>
+            </h1>
+            <p class="signal-intro">
+              关注真实业务场景，将复杂流程、多角色协同与密集信息界面，设计成一线用户能顺畅完成任务的体验。
+            </p>
+            <div class="signal-actions">
+              <button class="button signal-explode" id="hero-explode-btn" type="button">
+                <span>查看项目</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <div class="signal-proof">
+              <span>2019-2026</span>
+            </div>
+          </div>
+
+          <div class="signal-stage" aria-label="自动循环的粒子形态背景">
+            <div class="signal-frame" id="particle-frame">
+              <div class="signal-hud signal-hud-footer">
+                <span>徐钦阳</span>
+                <span>17826833831</span>
+              </div>
+            </div>
+            <div class="signal-stage-grid"></div>
+            <div class="signal-stage-axis signal-stage-axis-x"></div>
+            <div class="signal-stage-axis signal-stage-axis-y"></div>
+          </div>
+        </section>
+
+        <section class="section overview" id="experience">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Experience</p>
+            <h2>工作经历</h2>
+          </div>
+          <div class="experience-shell reveal">
+            <div class="experience-list" aria-label="工作经历列表">
+              <article class="experience-item" style="--accent: #6fe7ff">
+                <div class="experience-index">
+                  <span>01</span>
+                  <strong>2025.05-2026.06</strong>
+                </div>
+                <h3>政采云股份有限公司</h3>
+                <ol>
+                  <li>独立负责贵政新采购产品招标环节</li>
+                  <li>探索 AI 在工作流中和项目中的应用，主导 ZeroPage AI 生成界面项目中「样板间」模块建设</li>
+                </ol>
+              </article>
+              <article class="experience-item" style="--accent: #55a8ff">
+                <div class="experience-index">
+                  <span>02</span>
+                  <strong>2023.04-2025.03</strong>
+                </div>
+                <h3>平航科技</h3>
+                <ol>
+                  <li>独立负责取证调查客户端的设计改版</li>
+                  <li>负责web、客户端的日常迭代</li>
+                </ol>
+              </article>
+              <article class="experience-item" style="--accent: #38d8a0">
+                <div class="experience-index">
+                  <span>03</span>
+                  <strong>2021.03-2023.03</strong>
+                </div>
+                <h3>杭州一知智能有限公司</h3>
+                <ol>
+                  <li>独立负责RPA产品0-1及改版的体验设计</li>
+                  <li>可视化大屏UI界面设计</li>
+                  <li>独立负责AI语音外呼0-1体验设计</li>
+                </ol>
+              </article>
+              <article class="experience-item" style="--accent: #f5b05d">
+                <div class="experience-index">
+                  <span>04</span>
+                  <strong>2019.07-2021.02</strong>
+                </div>
+                <h3>杭州空灵智能科技有限公司</h3>
+                <ol>
+                  <li>纳乐智校app交互、视觉设计</li>
+                  <li>纳乐智家app交互优化及校园智能监控平台web设计</li>
+                </ol>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <span class="scroll-anchor" id="gallery" aria-hidden="true"></span>
+        <section class="section cases" id="cases">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Selected Works</p>
+            <h2>我负责过的设计项目</h2>
+          </div>
+          <div class="project-grid reveal" id="projectGrid" aria-label="项目入口">
+            <a class="project-card" href="project-bot.html" style="--accent: #20d4ff">
+              <div class="project-meta"><span>01</span><span>Web 端 / AI 语音外呼</span></div>
+              <h3>东上数科AI外呼</h3>
+              <p>围绕客服自动打电话场景，梳理 Bot 配置、话术流程、问答知识、训练测试与数据看板。</p>
+              <div class="project-tags"><span>Web 端</span><span>AI 语音外呼</span><span>复杂流程</span><span>数据可视</span></div>
+            </a>
+            <a class="project-card" href="project-rpa.html" style="--accent: #55a8ff">
+              <div class="project-meta"><span>02</span><span>PC / 客户端 / RPA</span></div>
+              <h3>U途RPA</h3>
+              <p>为模拟人在电脑上操作的自动化产品重构核心体验，处理流程搭建、工具触达与表单复杂度。</p>
+              <div class="project-tags"><span>PC / 客户端</span><span>RPA</span><span>流程搭建</span><span>表单优化</span></div>
+            </a>
+            <a class="project-card" href="project-dashboard.html" style="--accent: #38d8a0">
+              <div class="project-meta"><span>03</span><span>大屏设计 / 政务场景</span></div>
+              <h3>大屏设计</h3>
+              <p>将业务监控、接待内容、区域分类、预警状态等信息组织为强视觉场景下的数据界面。</p>
+              <div class="project-tags"><span>大屏设计</span><span>政务场景</span><span>数据看板</span><span>3D 可视化</span></div>
+            </a>
+            <a class="project-card" href="project-ai-workflow.html" style="--accent: #8a7cff">
+              <div class="project-meta"><span>04</span><span>AI 工作流 / Copilot</span></div>
+              <h3>AI 工作流设计探索</h3>
+              <p>围绕 AI 生成与工作流编排场景，探索输入、生成、校验到批量执行的人机协作体验。</p>
+              <div class="project-tags"><span>AI 工作流</span><span>Copilot</span><span>生成式体验</span><span>提效工具</span></div>
+            </a>
+            <a class="project-card" href="project-design-driven.html" style="--accent: #f5b05d">
+              <div class="project-meta"><span>05</span><span>设计自驱 / AIGC</span></div>
+              <h3>设计自驱</h3>
+              <p>主动识别问题、拆解目标并推进方案落地，将业务理解、体验策略与视觉表达整合为设计行动。</p>
+              <div class="project-tags"><span>设计自驱</span><span>AIGC</span><span>产品思维</span><span>全链路</span></div>
+            </a>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="关闭预览">×</button>
+      <img alt="" />
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js?v=20260702-6"></script>
+    <script src="home-signal.js"></script>
+  </body>
+</html>

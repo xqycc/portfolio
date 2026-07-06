@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>工作经历 · Linear 风格</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #08090a;
+        --surface: #0d0e11;
+        --surface-hover: #131418;
+        --border: rgba(255, 255, 255, 0.06);
+        --border-strong: rgba(255, 255, 255, 0.1);
+        --text: #e8e9eb;
+        --text-secondary: #a0a2a8;
+        --text-tertiary: #62656e;
+        --accent-blue: #5e6ad2;
+        --radius: 6px;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display",
+          "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+        letter-spacing: -0.003em;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ---- top bar ---- */
+      .topbar {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        height: 48px;
+        background: rgba(8, 9, 10, 0.72);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        z-index: 100;
+      }
+
+      /* ---- layout ---- */
+      .page {
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 120px 28px 120px;
+      }
+
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 32px;
+        color: var(--text-tertiary);
+        font-size: 13px;
+      }
+
+      .breadcrumb svg { width: 12px; height: 12px; opacity: 0.5; }
+
+      .breadcrumb a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 150ms;
+      }
+      .breadcrumb a:hover { color: var(--text); }
+      .breadcrumb .current { color: var(--text); }
+
+      .page-title {
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-bottom: 4px;
+      }
+
+      .page-sub {
+        color: var(--text-tertiary);
+        font-size: 13px;
+        margin-bottom: 56px;
+      }
+
+      /* ---- timeline ---- */
+      .timeline {
+        border-left: 1px solid var(--border);
+        margin-left: 4px;
+      }
+
+      .tl-item {
+        position: relative;
+        padding: 0 0 36px 28px;
+      }
+
+      .tl-item:last-child { padding-bottom: 0; }
+
+      /* node dot */
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 5px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 2px solid var(--node-color, var(--text-tertiary));
+        transition: background 200ms;
+      }
+
+      .tl-item:hover::before {
+        background: var(--node-color, var(--text-tertiary));
+      }
+
+      /* content card */
+      .tl-card {
+        padding: 16px 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        transition: background 150ms, border-color 150ms;
+      }
+
+      .tl-card:hover {
+        background: var(--surface-hover);
+        border-color: var(--border-strong);
+      }
+
+      .tl-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+
+      .tl-company {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+        letter-spacing: -0.01em;
+      }
+
+      .tl-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        white-space: nowrap;
+      }
+
+      .tl-badge .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--node-color);
+      }
+
+      .tl-list {
+        list-style: none;
+        display: grid;
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .tl-list li {
+        position: relative;
+        padding-left: 14px;
+        color: var(--text-secondary);
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
+
+      .tl-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--text-tertiary);
+      }
+
+      /* ---- entrance ---- */
+      .tl-item {
+        opacity: 0;
+        transform: translateY(8px);
+        animation: enter 500ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+      }
+      .tl-item:nth-child(1) { animation-delay: 60ms; }
+      .tl-item:nth-child(2) { animation-delay: 140ms; }
+      .tl-item:nth-child(3) { animation-delay: 220ms; }
+      .tl-item:nth-child(4) { animation-delay: 300ms; }
+
+      @keyframes enter {
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ---- mobile ---- */
+      @media (max-width: 640px) {
+        .page { padding: 80px 20px 80px; }
+        .tl-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar"></div>
+
+    <div class="page">
+      <div class="breadcrumb">
+        <a href="index.html">Portfolio</a>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span class="current">工作经历</span>
+      </div>
+
+      <h1 class="page-title">工作经历</h1>
+      <p class="page-sub">7 年 UI/UX 设计经验 · 工业设计 · 中国计量大学</p>
+
+      <div class="timeline">
+        <div class="tl-item" style="--node-color: #6fe7ff">
+          <div class="tl-card">
+            <div class="tl-header">
+              <span class="tl-company">政采云股份有限公司</span>
+              <span class="tl-badge"><span class="dot"></span>2025.05 — 2026.06</span>
+            </div>
+            <ul class="tl-list">
+              <li>独立负责贵政新采购产品招标环节</li>
+              <li>探索 AI 在工作流中和项目中的应用，主导 ZeroPage AI 生成界面项目中「样板间」模块建设</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item" style="--node-color: #55a8ff">
+          <div class="tl-card">
+            <div class="tl-header">
+              <span class="tl-company">平航科技</span>
+              <span class="tl-badge"><span class="dot"></span>2023.04 — 2025.03</span>
+            </div>
+            <ul class="tl-list">
+              <li>独立负责取证调查客户端的设计改版</li>
+              <li>负责 web、客户端的日常迭代</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item" style="--node-color: #38d8a0">
+          <div class="tl-card">
+            <div class="tl-header">
+              <span class="tl-company">杭州一知智能有限公司</span>
+              <span class="tl-badge"><span class="dot"></span>2021.03 — 2023.03</span>
+            </div>
+            <ul class="tl-list">
+              <li>独立负责 RPA 产品 0-1 及改版的体验设计</li>
+              <li>可视化大屏 UI 界面设计</li>
+              <li>独立负责 AI 语音外呼 0-1 体验设计</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item" style="--node-color: #f5b05d">
+          <div class="tl-card">
+            <div class="tl-header">
+              <span class="tl-company">杭州空灵智能科技有限公司</span>
+              <span class="tl-badge"><span class="dot"></span>2019.07 — 2021.02</span>
+            </div>
+            <ul class="tl-list">
+              <li>纳乐智校 app 交互、视觉设计</li>
+              <li>纳乐智家 app 交互优化及校园智能监控平台 web 设计</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
