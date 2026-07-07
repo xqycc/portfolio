@@ -443,6 +443,10 @@ img {
   background: transparent;
 }
 
+.button-resume::before {
+  display: none;
+}
+
 .button-resume:hover {
   transform: none;
   border-color: rgba(32, 212, 255, 0.72);
