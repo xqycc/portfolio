@@ -151,7 +151,7 @@ function slideSrc(number) {
 }
 
 function originalSrc(number) {
-  return `素材/${number}.png`;
+  return `assets/slides/${number}.jpg`;
 }
 
 function showLightboxItem(index) {
