@@ -311,7 +311,11 @@ function setupProjectAnchorNav() {
 
   const setActiveLink = (id) => {
     links.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("active", isActive);
+    });
+    sections.forEach((section) => {
+      section.classList.toggle("active", section.id === id);
     });
   };
 
