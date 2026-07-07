@@ -444,8 +444,8 @@ img {
 }
 
 .button-resume:hover {
-  color: inherit;
-  background: transparent;
+  transform: none;
+  border-color: rgba(32, 212, 255, 0.72);
 }
 
 .signal-bottom-bar {
