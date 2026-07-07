@@ -1726,6 +1726,7 @@ h3 {
   padding: 0 14px;
   color: var(--text);
   text-decoration: none;
+  font-size: 14px;
 }
 
 .project-anchor nav {
